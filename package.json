@@ -1,0 +1,48 @@
+{
+  "name": "claude-context-pack",
+  "version": "1.0.0",
+  "description": "Optimize what Claude sees in your project — analyze context size, detect bloat, generate .claudeignore and CLAUDE.md",
+  "type": "module",
+  "bin": {
+    "claude-context-pack": "./bin/pack.js"
+  },
+  "files": [
+    "bin/",
+    "src/",
+    "banner.svg",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "start": "node bin/pack.js",
+    "test": "node bin/pack.js scan"
+  },
+  "keywords": [
+    "claude",
+    "claude-code",
+    "context",
+    "ai",
+    "llm",
+    "tokens",
+    "claudeignore",
+    "CLAUDE.md",
+    "anthropic"
+  ],
+  "author": "NickCirv",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "commander": "^12.1.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/NickCirv/claude-context-pack.git"
+  },
+  "homepage": "https://github.com/NickCirv/claude-context-pack#readme",
+  "bugs": {
+    "url": "https://github.com/NickCirv/claude-context-pack/issues"
+  }
+}
