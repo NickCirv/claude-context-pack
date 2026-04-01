@@ -1,3 +1,5 @@
+![Banner](banner.svg)
+
 # claude-context-pack
 
 Analyze your project's Claude context size, find the bloat, and generate a `.claudeignore` + `CLAUDE.md` to fix it.
