@@ -1,44 +1,64 @@
-<div align="center">
+![Nicholas Ashkar — claude-context-pack](assets/nicholas-ashkar/banner.png)
 
 # claude-context-pack
 
-**Scan your project for Claude context bloat — then auto-generate `.claudeignore` and `CLAUDE.md` to fix it.**
+Scans a project for context-heavy files and drafts Claude configuration files from local source structure.
 
-[![License: MIT](https://img.shields.io/badge/license-MIT-blue?labelColor=0B0A09)](LICENSE)
-[![Node ≥ 18](https://img.shields.io/badge/node-%3E%3D18-brightgreen?labelColor=0B0A09)](https://nodejs.org)
 
-</div>
 
-## Install
 
-```bash
-npx github:NickCirv/claude-context-pack scan
-```
 
-No global install needed. Runs directly from GitHub.
+<a id="usage"></a>
 
-## Usage
+<a id="analyse-context-size-and-show-top-bloat-sources"></a>
 
-```bash
-# Analyse context size and show top bloat sources
-npx github:NickCirv/claude-context-pack scan
+<a id="preview-recommended-claudeignore-patterns-dry-run"></a>
 
-# Preview recommended .claudeignore patterns (dry run)
-npx github:NickCirv/claude-context-pack suggest
-
-# Write .claudeignore + CLAUDE.md to project root
-npx github:NickCirv/claude-context-pack generate
-```
-
-| Flag | Description |
-|------|-------------|
-| `--overwrite` | Replace existing `.claudeignore` / `CLAUDE.md` |
-| `--no-claudemd` | Skip generating `CLAUDE.md` |
-| `--no-claudeignore` | Skip generating `.claudeignore` |
+<a id="write-claudeignore--claudemd-to-project-root"></a>
 
 ## What it does
 
-Walks your project, estimates token counts per file (4 chars ≈ 1 token), and identifies 50+ known bloat patterns across `node_modules`, `dist`, `coverage`, `lockfiles`, `cache`, `ide`, and more. `scan` shows how many tokens are clean vs bloat; `generate` writes a grouped, commented `.claudeignore` with per-pattern token savings and scaffolds a `CLAUDE.md` pre-filled with your detected stack (Next.js, TypeScript, Prisma, Tailwind, Stripe, Python, Rust, Go, etc.) and dev commands.
+- Scan and suggestions.
+- Stack/key-file detection.
+- Selective CLAUDE.md and ignore-file generation.
 
----
-<sub>Node ≥ 18 · MIT · by <a href="https://github.com/NickCirv">NickCirv</a></sub>
+
+<a id="install"></a>
+
+## Quickstart
+
+Prerequisites: Node.js `>=18.0.0` and npm. The checkout below pins the source used for this documentation.
+
+```sh
+git clone https://github.com/NickCirv/claude-context-pack.git
+cd claude-context-pack
+git checkout de870f12ec6f04769581aed23abeed9cf6a80eee
+npm install
+node bin/pack.js scan .
+```
+
+**Expected behavior (illustrative, not captured):** Prints estimated context size and categorized sources of bloat.
+
+Examples are source-inspected, **not runtime-tested**. See the research record for verification gaps.
+
+## Boundaries and data
+
+Token counts are character-based estimates. Generated CLAUDE.md and .claudeignore files are suggestions that need review; generate writes files and --overwrite replaces existing content.
+
+## Development
+
+The manifest defines `npm test` as:
+
+```sh
+node bin/pack.js scan
+```
+
+No separate behavioral test file was captured. Tests were not run for this documentation revision.
+
+See [implementation and command reference](docs/REFERENCE.md) for the package scripts and inspected interfaces, and [research record](docs/RESEARCH.md) for the pinned source, document decisions and unresolved checks.
+
+## License and contact
+
+See [LICENSE](LICENSE) for the original terms and attribution. Legal text is unchanged.
+
+[Nicholas Ashkar](https://nicholashkar.com/) · [Discuss a project](https://nicholashkar.com/#oxblood-contact)
